@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ataque Cibernético ao West Clermont Local School District</title>
+    <style>
+        /* Reset e configurações básicas */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #1e3a8a;
+            background-color: #f0f9ff;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.95;
+        }
+
+        /* Navegação */
+        nav {
+            background-color: #1e3a8a;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        nav li {
+            margin: 0;
+        }
+
+        nav a {
+            display: block;
+            color: white;
+            text-decoration: none;
+            padding: 15px 25px;
+            transition: background-color 0.3s ease;
+        }
+
+        nav a:hover {
+            background-color: #2563eb;
+        }
+
+        /* Main Content */
+        main {
+            padding: 40px 20px;
+        }
+
+        .section {
+            background-color: white;
+            margin-bottom: 40px;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border-left: 5px solid #3b82f6;
+        }
+
+        .section h2 {
+            color: #1e40af;
+            font-size: 2rem;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 3px solid #3b82f6;
+        }
+
+        .section h3 {
+            color: #2563eb;
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+        }
+
+        .section p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+
+        /* Content Grid */
+        .content-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            align-items: center;
+            margin-top: 25px;
+        }
+
+        .content-grid.reverse {
+            direction: rtl;
+        }
+
+        .content-grid.reverse > * {
+            direction: ltr;
+        }
+
+        .text-content {
+            padding: 20px;
+        }
+
+        .image-content {
+            text-align: center;
+        }
+
+        .image-content img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+            transition: transform 0.3s ease;
+        }
+
+        .image-content img:hover {
+            transform: scale(1.05);
+        }
+
+        .image-caption {
+            margin-top: 10px;
+            font-style: italic;
+            color: #64748b;
+            font-size: 0.9rem;
+        }
+
+        /* Info Box */
+        .info-box {
+            background-color: #dbeafe;
+            border-left: 4px solid #2563eb;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+        }
+
+        .info-box h3 {
+            margin-top: 0;
+            color: #1e40af;
+        }
+
+        /* Phases Container */
+        .phases-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin: 30px 0;
+        }
+
+        .phase-card {
+            background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+            border: 2px solid #3b82f6;
+            border-radius: 12px;
+            padding: 25px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+        }
+
+        .phase-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(59, 130, 246, 0.3);
+        }
+
+        .phase-number {
+            position: absolute;
+            top: -15px;
+            left: 20px;
+            background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
+            color: white;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        }
+
+        .phase-card h3 {
+            margin-top: 15px;
+            margin-bottom: 12px;
+            color: #1e40af;
+        }
+
+        .attack-image {
+            margin-top: 30px;
+            text-align: center;
+        }
+
+        .attack-image img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 12px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Controls List */
+        .controls-list {
+            margin-top: 25px;
+        }
+
+        .control-item {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 25px;
+            padding: 20px;
+            background-color: #f0f9ff;
+            border-radius: 10px;
+            border-left: 4px solid #3b82f6;
+            transition: background-color 0.3s ease;
+        }
+
+        .control-item:hover {
+            background-color: #dbeafe;
+        }
+
+        .control-icon {
+            font-size: 2.5rem;
+            min-width: 60px;
+            text-align: center;
+        }
+
+        .control-content h3 {
+            margin-top: 0;
+            margin-bottom: 8px;
+            color: #1e40af;
+            font-size: 1.2rem;
+        }
+
+        .control-content p {
+            margin-bottom: 0;
+        }
+
+        /* Conclusion Box */
+        .conclusion-box {
+            background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+            padding: 30px;
+            border-radius: 12px;
+            border: 2px solid #3b82f6;
+            margin-top: 25px;
+        }
+
+        .conclusion-box p {
+            margin-bottom: 20px;
+        }
+
+        .conclusion-box p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* About Box */
+        .about-box {
+            background-color: #1e40af;
+            color: white;
+            padding: 30px;
+            border-radius: 12px;
+            margin-top: 30px;
+        }
+
+        .about-box h3 {
+            color: white;
+            margin-bottom: 15px;
+        }
+
+        .about-box p {
+            margin-bottom: 10px;
+        }
+
+        .about-box strong {
+            color: #93c5fd;
+        }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+            margin-top: 40px;
+        }
+
+        footer p {
+            margin: 5px 0;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 1.8rem;
+            }
+
+            .subtitle {
+                font-size: 1rem;
+            }
+
+            nav ul {
+                flex-direction: column;
+            }
+
+            nav a {
+                padding: 12px 20px;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            }
+
+            .content-grid,
+            .content-grid.reverse {
+                grid-template-columns: 1fr;
+                direction: ltr;
+            }
+
+            .section {
+                padding: 25px;
+            }
+
+            .section h2 {
+                font-size: 1.6rem;
+            }
+
+            .phases-container {
+                grid-template-columns: 1fr;
+            }
+
+            .control-item {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .control-icon {
+                min-width: auto;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header h1 {
+                font-size: 1.5rem;
+            }
+
+            .section {
+                padding: 20px;
+            }
+
+            .section h2 {
+                font-size: 1.4rem;
+            }
+
+            .phase-card {
+                padding: 20px;
+            }
+        }
+
+        /* Animações */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .section {
+            animation: fadeIn 0.6s ease-out;
+        }
+
+        /* Scroll suave */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Seleção de texto */
+        ::selection {
+            background-color: #3b82f6;
+            color: white;
+        }
+
+        ::-moz-selection {
+            background-color: #3b82f6;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Ataque Cibernético ao West Clermont Local School District</h1>
+            <p class="subtitle">Análise de um Incidente Real de Engenharia Social em Instituição Educacional</p>
+        </div>
+    </header>
+
+    <nav>
+        <div class="container">
+            <ul>
+                <li><a href="#introducao">Introdução</a></li>
+                <li><a href="#relato">Relato do Ataque</a></li>
+                <li><a href="#fases">Fases do Ataque</a></li>
+                <li><a href="#controles">Controles de Segurança</a></li>
+                <li><a href="#conclusao">Conclusão</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="container">
+        <section id="introducao" class="section">
+            <h2>Introdução</h2>
+            <div class="content-grid">
+                <div class="text-content">
+                    <p><strong>Nome:</strong> Heitor Gonçalves Teixeira Pinheiro</p>
+                    <p><strong>Curso:</strong> 2º Desenvolvimento de Sistemas</p>
+                    <p><strong>Questão:</strong> Pesquisar um incidente real de ransomware em escolas/órgãos públicos, resumir as fases do ataque e listar controles que poderiam ter reduzido o impacto.</p>
+                    <p>Este trabalho apresenta uma análise detalhada do ataque cibernético sofrido pelo West Clermont Local School District em dezembro de 2023, que resultou em uma perda financeira de aproximadamente US$ 1,7 milhão através de uma sofisticada fraude por engenharia social.</p>
+                </div>
+                <div class="image-content">
+                    <img src="cyber-education.png" alt="Cibersegurança na Educação">
+                </div>
+            </div>
+        </section>
+
+        <section id="relato" class="section">
+            <h2>Relato do Ataque</h2>
+            <div class="content-grid reverse">
+                <div class="image-content">
+                    <img src="west-clermont-school.jpg" alt="West Clermont High School">
+                    <p class="image-caption">West Clermont High School - Cincinnati, Ohio</p>
+                </div>
+                <div class="text-content">
+                    <p>Em dezembro de 2023, o <strong>West Clermont Local School District</strong>, localizado no estado de Ohio (EUA), sofreu um ataque cibernético que causou uma perda financeira de aproximadamente <strong>US$ 1,7 milhão</strong>. O ataque não envolveu invasão de sistemas nem sequestro de dados (como ocorre com ransomwares), mas sim uma fraude por engenharia social, ou seja, os criminosos enganaram funcionários para redirecionar pagamentos legítimos.</p>
+                    
+                    <div class="info-box">
+                        <h3>Como o Golpe Funcionou</h3>
+                        <p>Os invasores se passaram por fornecedores oficiais do distrito escolar e enviaram solicitações falsas de mudança de contas bancárias. Assim, quando o setor financeiro realizou pagamentos por meio do sistema eletrônico <strong>ACH (Automated Clearing House)</strong>, o dinheiro foi enviado para contas controladas pelos golpistas.</p>
+                    </div>
+
+                    <p>Somente depois de alguns dias o erro foi descoberto, quando os fornecedores verdadeiros informaram que não haviam recebido os valores. A superintendente <strong>Natasha Adams</strong> informou em uma carta oficial (junho de 2024) que, apesar do prejuízo, nenhum dado pessoal de alunos ou funcionários foi vazado.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="fases" class="section">
+            <h2>Fases do Ataque</h2>
+            <div class="phases-container">
+                <div class="phase-card">
+                    <div class="phase-number">1</div>
+                    <h3>Reconhecimento (Coleta de Informações)</h3>
+                    <p>Os criminosos investigaram o funcionamento interno do distrito, especialmente os processos de pagamento a fornecedores, identificando quem eram os responsáveis financeiros e como eram feitas as transações.</p>
+                </div>
+
+                <div class="phase-card">
+                    <div class="phase-number">2</div>
+                    <h3>Engenharia Social (Engano)</h3>
+                    <p>Em seguida, enviaram comunicações falsas se passando por fornecedores legítimos, pedindo a atualização de dados bancários. Essas mensagens pareciam autênticas e usavam informações reais coletadas anteriormente.</p>
+                </div>
+
+                <div class="phase-card">
+                    <div class="phase-number">3</div>
+                    <h3>Exploração (Execução do Golpe)</h3>
+                    <p>O setor financeiro, acreditando na veracidade dos pedidos, alterou as contas bancárias no sistema de pagamento eletrônico (ACH). Assim, os valores destinados aos fornecedores foram desviados para contas controladas pelos golpistas.</p>
+                </div>
+
+                <div class="phase-card">
+                    <div class="phase-number">4</div>
+                    <h3>Impacto e Detecção</h3>
+                    <p>Dias depois, os fornecedores verdadeiros informaram que não haviam recebido os pagamentos, revelando o golpe. O distrito confirmou o desvio e iniciou uma investigação com autoridades locais e federais.</p>
+                </div>
+
+                <div class="phase-card">
+                    <div class="phase-number">5</div>
+                    <h3>Resposta e Recuperação</h3>
+                    <p>Após o incidente, o distrito reforçou seus controles internos, comunicou o público e adotou novas políticas de segurança, como verificações adicionais e treinamento de pessoal.</p>
+                </div>
+            </div>
+
+            <div class="attack-image">
+                <img src="ransomware-attack.jpg" alt="Ataques Cibernéticos em Escolas">
+            </div>
+        </section>
+
+        <section id="controles" class="section">
+            <h2>Controles que Poderiam Ter Reduzido o Impacto</h2>
+            <div class="content-grid">
+                <div class="text-content">
+                    <p>Para evitar ou diminuir as consequências de ataques desse tipo, algumas medidas poderiam ter sido aplicadas:</p>
+                    
+                    <div class="controls-list">
+                        <div class="control-item">
+                            <div class="control-icon">🔐</div>
+                            <div class="control-content">
+                                <h3>Verificação Dupla de Alterações Bancárias</h3>
+                                <p>Confirmar diretamente com o fornecedor por telefone ou videoconferência antes de mudar dados de pagamento.</p>
+                            </div>
+                        </div>
+
+                        <div class="control-item">
+                            <div class="control-icon">🛡️</div>
+                            <div class="control-content">
+                                <h3>Autenticação Multifator (MFA)</h3>
+                                <p>Exigir múltiplas confirmações em logins e aprovações financeiras.</p>
+                            </div>
+                        </div>
+
+                        <div class="control-item">
+                            <div class="control-icon">📚</div>
+                            <div class="control-content">
+                                <h3>Treinamentos de Conscientização em Segurança</h3>
+                                <p>Ensinar funcionários a reconhecer mensagens suspeitas, e-mails falsos e sinais de engenharia social.</p>
+                            </div>
+                        </div>
+
+                        <div class="control-item">
+                            <div class="control-icon">👥</div>
+                            <div class="control-content">
+                                <h3>Segmentação de Funções</h3>
+                                <p>Separar funções de autorização e execução de pagamentos para evitar erros individuais.</p>
+                            </div>
+                        </div>
+
+                        <div class="control-item">
+                            <div class="control-icon">📊</div>
+                            <div class="control-content">
+                                <h3>Monitoramento de Transações e Alertas Automáticos</h3>
+                                <p>Configurar o sistema financeiro para detectar mudanças anormais em contas ou valores.</p>
+                            </div>
+                        </div>
+
+                        <div class="control-item">
+                            <div class="control-icon">💾</div>
+                            <div class="control-content">
+                                <h3>Backups e Plano de Resposta a Incidentes</h3>
+                                <p>Garantir que dados e operações críticas possam ser restaurados rapidamente caso ocorra um ataque mais invasivo, como ransomware tradicional.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="image-content">
+                    <img src="network-security.png" alt="Segurança de Rede">
+                </div>
+            </div>
+        </section>
+
+        <section id="conclusao" class="section">
+            <h2>Conclusão</h2>
+            <div class="conclusion-box">
+                <p>O ataque ao West Clermont Local School District demonstra que mesmo instituições com medidas preventivas robustas podem ser vítimas de ataques sofisticados de engenharia social. A perda de US$ 1,7 milhão evidencia a importância de implementar múltiplas camadas de segurança, incluindo verificações manuais, autenticação multifator e treinamento contínuo de funcionários.</p>
+                
+                <p>O distrito respondeu de forma adequada ao incidente, notificando imediatamente as autoridades competentes, bancos e sua seguradora, além de implementar medidas adicionais de segurança. A transparência na comunicação com a comunidade escolar também foi fundamental para manter a confiança pública.</p>
+                
+                <p>Este caso serve como um importante alerta para todas as instituições educacionais e órgãos públicos sobre a necessidade de investir continuamente em cibersegurança, não apenas em tecnologia, mas também na capacitação e conscientização das pessoas que operam os sistemas.</p>
+            </div>
+
+            <div class="about-box">
+                <h3>Sobre o West Clermont School District</h3>
+                <p>O West Clermont School District se compromete com a excelência para cada aluno, todos os dias, e de todas as formas. Sua visão é que, juntos como uma comunidade, aprendemos, lideramos e temos sucesso. O distrito acredita que juntos estamos <strong>"ON THE RISE"</strong> e valoriza o fortalecimento de relacionamentos, cultivando inovação, sendo incansavelmente centrado no aluno e promovendo o empoderamento.</p>
+                <p><strong>Endereço:</strong> 4350 Aicholtz Road, Cincinnati, OH 45245</p>
+                <p><strong>Contato:</strong> 513.943.5000 | westcler.org</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 - Trabalho Acadêmico sobre Cibersegurança</p>
+            <p>Desenvolvido por Heitor Gonçalves Teixeira Pinheiro - 2º Desenvolvimento de Sistemas</p>
+        </div>
+    </footer>
+</body>
+</html>
